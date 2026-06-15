@@ -75,7 +75,7 @@ router.post("/payment/create-intent", async (req: Request, res: Response) => {
       payment_method_options: {
         card: { request_three_d_secure: "automatic" },
       },
-      description: kitName ? `Panini FIFA WC26 Kit \u2014 ${kitName}` : "Panini FIFA World Cup 2026 Kit",
+      description: kitName ?? "Panini FIFA WC26",
       metadata: {
         customer_email: payer.email,
         customer_name:  payer.name,
