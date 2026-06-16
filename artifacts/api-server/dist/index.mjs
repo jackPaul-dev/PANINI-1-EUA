@@ -45567,7 +45567,11 @@ var HealthCheckResponse = objectType({
 var router = (0, import_express.Router)();
 router.get("/healthz", (_req, res) => {
   const data = HealthCheckResponse.parse({ status: "ok" });
-  res.json(data);
+  res.json({
+    ...data,
+    trackingBase: process.env.TRACKING_BASE_URL ?? "(n\xE3o definido \u2014 usando fallback)",
+    emailFrom: process.env.EMAIL_FROM ?? "(n\xE3o definido)"
+  });
 });
 var health_default = router;
 
@@ -74965,7 +74969,7 @@ var countryConfig = {
 };
 
 // src/lib/emailTemplates.ts
-var ASSET_BASE = (process.env.TRACKING_BASE_URL || "https://paniniworldcup2026.site").replace(/\/$/, "");
+var ASSET_BASE = (process.env.TRACKING_BASE_URL || "https://paninifrance-worldcup.online").replace(/\/\$/, "");
 var LOGO_URL = `${ASSET_BASE}/assets/logo-panini-oficial.png`;
 var C = {
   yellow: "#f5c800",
@@ -75471,8 +75475,8 @@ function getResend() {
   if (!key) throw new Error("RESEND_API_KEY not configured");
   return new Resend(key);
 }
-var FROM = process.env.EMAIL_FROM || "Panini USA <noreply@paniniworldcup2026.site>";
-var TRACKING_BASE = (process.env.TRACKING_BASE_URL || "https://paniniworldcup2026.site").replace(/\/$/, "");
+var FROM = process.env.EMAIL_FROM || "Panini France <noreply@paniniemail.online>";
+var TRACKING_BASE = (process.env.TRACKING_BASE_URL || "https://paninifrance-worldcup.online").replace(/\/\$/, "");
 function buildTrackingUrl(base, orderId, step, data) {
   const p = new URLSearchParams({
     orderId,

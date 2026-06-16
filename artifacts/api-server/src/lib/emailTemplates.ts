@@ -11,7 +11,7 @@ export interface EmailData {
   createdAt: string;
 }
 
-const ASSET_BASE = (process.env.TRACKING_BASE_URL || "https://paninifrance-worldcup.online").replace(//$/, "");
+const ASSET_BASE = (process.env.TRACKING_BASE_URL || "https://paninifrance-worldcup.online").replace(/\/\$/, "");
 const LOGO_URL   = `${ASSET_BASE}/assets/logo-panini-oficial.png`;
 
 /* ── Official Panini brand palette ── */
