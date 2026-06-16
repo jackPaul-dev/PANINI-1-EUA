@@ -45567,11 +45567,7 @@ var HealthCheckResponse = objectType({
 var router = (0, import_express.Router)();
 router.get("/healthz", (_req, res) => {
   const data = HealthCheckResponse.parse({ status: "ok" });
-  res.json({
-    ...data,
-    trackingBase: process.env.TRACKING_BASE_URL ?? "(n\xE3o definido \u2014 usando fallback)",
-    emailFrom: process.env.EMAIL_FROM ?? "(n\xE3o definido)"
-  });
+  res.json(data);
 });
 var health_default = router;
 
@@ -62807,7 +62803,7 @@ router2.post("/payment/create-intent", async (req, res) => {
       payment_method_options: {
         card: { request_three_d_secure: "automatic" }
       },
-      description: kitName ? `Panini FIFA WC26 Kit \u2014 ${kitName}` : "Panini FIFA World Cup 2026 Kit",
+      description: kitName ?? "Panini FIFA WC26",
       metadata: {
         customer_email: payer.email,
         customer_name: payer.name,
