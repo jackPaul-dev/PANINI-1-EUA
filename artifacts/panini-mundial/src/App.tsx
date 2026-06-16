@@ -1,4 +1,4 @@
-import { Switch, Route, Router as WouterRouter, useLocation } from "wouter";
+import { Switch, Route, Redirect, Router as WouterRouter, useLocation } from "wouter";
 import { useEffect, useRef } from "react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -55,8 +55,8 @@ function Router() {
         {/* ── France — root do domínio paniniworldcup-fr.site ── */}
         <Route path="/" component={FranceLanding} />
         <Route path="/checkout" component={FranceCheckout} />
-        <Route path="/presell" component={FrancePresell} />
-        <Route path="/pressel" component={FrancePresell} />
+        <Route path="/presell"><Redirect to="/checkout" /></Route>
+        <Route path="/pressel"><Redirect to="/checkout" /></Route>
         <Route path="/seguimiento" component={Seguimiento} />
         <Route path="/tracking" component={Seguimiento} />
         <Route path="/email" component={EmailPanel} />
@@ -79,8 +79,8 @@ function Router() {
 
         {/* ── FRANCE ── */}
         <Route path="/france" component={FranceLanding} />
-        <Route path="/france/presell" component={FrancePresell} />
-        <Route path="/france/pressel" component={FrancePresell} />
+        <Route path="/france/presell"><Redirect to="/checkout" /></Route>
+        <Route path="/france/pressel"><Redirect to="/checkout" /></Route>
         <Route path="/france/checkout" component={FranceCheckout} />
         <Route path="/france/suivre" component={FranceSuivre} />
         <Route path="/france/tracking" component={FranceSuivre} />

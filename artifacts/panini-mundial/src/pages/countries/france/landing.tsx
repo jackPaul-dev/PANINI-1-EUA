@@ -33,7 +33,7 @@ export default function FranceLanding() {
     const utmKeys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','ttclid','gclid'];
     const checkoutParams = new URLSearchParams({ kit: kitId });
     utmKeys.forEach(k => { const v = params.get(k); if (v) checkoutParams.set(k, v); });
-    setLocation(`/france/checkout?${checkoutParams.toString()}`);
+    setLocation(`/checkout?${checkoutParams.toString()}`);
   };
 
   const stagger = {
