@@ -10,10 +10,10 @@
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://paniniworldcup-fr.site/" />
+    <meta property="og:url" content="https://paninifrance-worldcup.online/" />
     <meta property="og:title" content="Panini FIFA Coupe du Monde 2026 — Album officiel de stickers | France" />
     <meta property="og:description" content="Procurez-vous l'album officiel Panini FIFA Coupe du Monde 2026 et les pochettes de stickers. Livraison gratuite partout en France. Kits dès 12,99 €." />
-    <meta property="og:image" content="https://paniniworldcup-fr.site/assets/hero-produto.png" />
+    <meta property="og:image" content="https://paninifrance-worldcup.online/assets/hero-produto.png" />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
     <meta property="og:locale" content="fr_FR" />
@@ -23,12 +23,34 @@
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content="Panini FIFA Coupe du Monde 2026 — Album officiel de stickers | France" />
     <meta name="twitter:description" content="Album officiel Panini FIFA Coupe du Monde 2026. Livraison gratuite en France. Kits dès 12,99 €." />
-    <meta name="twitter:image" content="https://paniniworldcup-fr.site/assets/hero-produto.png" />
+    <meta name="twitter:image" content="https://paninifrance-worldcup.online/assets/hero-produto.png" />
 
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- UTM Capture — inline síncrono, roda ANTES de qualquer framework -->
+    <script>
+      (function() {
+        try {
+          var keys = ['utm_source','utm_medium','utm_campaign','utm_content','utm_term','fbclid','ttclid','gclid','src'];
+          var params = new URLSearchParams(window.location.search);
+          keys.forEach(function(k) {
+            var v = params.get(k);
+            if (v) { sessionStorage.setItem('panini_utm_' + k, v); }
+          });
+          if (!sessionStorage.getItem('panini_utm_utm_source') && document.referrer) {
+            var ref = document.referrer.toLowerCase();
+            if (ref.indexOf('facebook.com') > -1 || ref.indexOf('instagram.com') > -1 || ref.indexOf('fb.com') > -1 || ref.indexOf('l.facebook.com') > -1) {
+              sessionStorage.setItem('panini_utm_utm_source', 'facebook');
+              sessionStorage.setItem('panini_utm_utm_medium', 'paid_social');
+            }
+          }
+        } catch(e) {}
+      })();
+    </script>
+    <!-- End UTM Capture -->
 
     <!-- Meta Pixel -->
     <script>
@@ -41,12 +63,27 @@
       fbq('track','PageView');
     </script>
     <!-- End Meta Pixel -->
-    <script type="module" crossorigin src="/assets/index-DQoCIlak.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-tAn0z3BK.css">
+
+    <!-- Microsoft Clarity -->
+    <script type="text/javascript">
+      (function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "x53p6gzkzs");
+    </script>
+    <!-- End Microsoft Clarity -->
+
+    <!-- UTMify -->
+    <script async src="https://cdn.utmify.com.br/scripts/utms/latest.js"
+      data-utmify-prevent-subids></script>
+    <!-- End UTMify -->
   </head>
   <body>
     <noscript><img height="1" width="1" style="display:none"
       src="https://www.facebook.com/tr?id=1545212470581501&ev=PageView&noscript=1"/></noscript>
     <div id="root"></div>
+    <script type="module" crossorigin src="/assets/index-DQoCIlak.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/index-tAn0z3BK.css">
   </body>
 </html>
