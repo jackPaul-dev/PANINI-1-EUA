@@ -55,8 +55,8 @@ function Router() {
         {/* ── France — root do domínio paniniworldcup-fr.site ── */}
         <Route path="/" component={FranceLanding} />
         <Route path="/checkout" component={FranceCheckout} />
-        <Route path="/presell"><Redirect to="/checkout" /></Route>
-        <Route path="/pressel"><Redirect to="/checkout" /></Route>
+        <Route path="/presell" component={FrancePresell} />
+        <Route path="/pressel" component={FrancePresell} />
         <Route path="/seguimiento" component={Seguimiento} />
         <Route path="/tracking" component={Seguimiento} />
         <Route path="/email" component={EmailPanel} />
