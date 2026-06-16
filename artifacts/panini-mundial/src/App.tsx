@@ -54,9 +54,9 @@ function Router() {
       <Switch>
         {/* ── France — root do domínio paniniworldcup-fr.site ── */}
         <Route path="/" component={FranceLanding} />
-        <Route path="/checkout" component={Checkout} />
-        <Route path="/presell" component={Pressel} />
-        <Route path="/pressel" component={Pressel} />
+        <Route path="/checkout" component={FranceCheckout} />
+        <Route path="/presell" component={FrancePresell} />
+        <Route path="/pressel" component={FrancePresell} />
         <Route path="/seguimiento" component={Seguimiento} />
         <Route path="/tracking" component={Seguimiento} />
         <Route path="/email" component={EmailPanel} />
